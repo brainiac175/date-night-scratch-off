@@ -106,4 +106,4 @@ function renderGrid() {
 resetBtn.addEventListener("click", renderGrid);
 renderGrid();
 
-//9
+//10
