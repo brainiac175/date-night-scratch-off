@@ -1,67 +1,26 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Date Night Scratch-Off For </title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <h1>Date Night Scratch-Off For Kyley </h1>
 
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f4f4f4;
-  padding: 40px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-}
+    <!-- Scratch-off grid -->
+    <div id="grid" class="grid"></div>
 
-h1 {
-  text-align: center;
-  margin-bottom: 24px;
-}
+    <!-- Reset button -->
+    <button id="reset">Reset</button>
+  </main>
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 110px);
-  gap: 12px;
-  justify-content: center;
-  margin-bottom: 30px;
-}
-
-.card {
-  background-color: #787878; /* Soft gray to reduce illusion */
-  color: white;
-  font-weight: bold;
-  font-size: 14px;
-  width: 110px;
-  height: 110px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  cursor: pointer;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
-  transition: background 0.2s ease;
-}
-
-.card.revealed {
-  background-color: #ffe066;
-  color: #222;
-}
-
-button {
-  padding: 10px 20px;
-  font-size: 15px;
-  background-color: #222;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-top: 10px;
-  transition: background 0.2s ease;
-}
-
-button:hover {
-  background-color: #444;
-}
+  <!-- Load ideas *first*, then the logic that uses them -->
+  <script src="ideas.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
 
 
