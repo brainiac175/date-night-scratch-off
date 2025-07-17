@@ -15,6 +15,7 @@ function createScratchTile(ideaText) {
   canvas.style.top = "0";
   canvas.style.left = "0";
   canvas.style.zIndex = "2";
+  canvas.style.borderRadius = "8px";
 
   const ctx = canvas.getContext("2d");
 
@@ -27,7 +28,7 @@ function createScratchTile(ideaText) {
   ctx.textBaseline = "middle";
   ctx.fillText("Scratch me!", canvas.width / 2, canvas.height / 2);
 
-  // Underneath message
+  // Hidden idea text
   const hidden = document.createElement("div");
   hidden.textContent = ideaText;
   hidden.style.width = "120px";
@@ -38,11 +39,12 @@ function createScratchTile(ideaText) {
   hidden.style.fontWeight = "bold";
   hidden.style.fontSize = "14px";
   hidden.style.color = "#222";
-  hidden.style.background = "#eee"; // Light background
+  hidden.style.background = "#eee";
   hidden.style.position = "absolute";
   hidden.style.top = "0";
   hidden.style.left = "0";
   hidden.style.zIndex = "1";
+  hidden.style.borderRadius = "8px";
 
   // Tile container
   const container = document.createElement("div");
