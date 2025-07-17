@@ -12,9 +12,9 @@ function createScratchTile(ideaText) {
   canvas.height = 120;
   const ctx = canvas.getContext("2d");
 
-  ctx.fillStyle = "#d6336c";
+  ctx.fillStyle = "#444"; // dark gray scratch layer
   ctx.fillRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "#fff";
+  ctx.fillStyle = "#ccc";
   ctx.font = "bold 14px sans-serif";
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
@@ -29,7 +29,7 @@ function createScratchTile(ideaText) {
   hidden.style.justifyContent = "center";
   hidden.style.fontWeight = "bold";
   hidden.style.fontSize = "14px";
-  hidden.style.color = "#d6336c";
+  hidden.style.color = "#444";
   hidden.innerText = ideaText;
 
   const container = document.createElement("div");
@@ -70,8 +70,8 @@ function createScratchTile(ideaText) {
 
 function renderGrid() {
   grid.innerHTML = "";
-  const ideas = pickRandomIdeas(9);
-  ideas.forEach((idea) => {
+  const selected = pickRandomIdeas(9);
+  selected.forEach((idea) => {
     const tile = createScratchTile(idea);
     grid.appendChild(tile);
   });
