@@ -12,7 +12,7 @@ function createScratchTile(ideaText) {
   canvas.height = 120;
   const ctx = canvas.getContext("2d");
 
-  ctx.fillStyle = "#444"; // dark gray scratch layer
+  ctx.fillStyle = "#444"; // dark gray overlay
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = "#ccc";
   ctx.font = "bold 14px sans-serif";
@@ -70,8 +70,8 @@ function createScratchTile(ideaText) {
 
 function renderGrid() {
   grid.innerHTML = "";
-  const selected = pickRandomIdeas(9);
-  selected.forEach((idea) => {
+  const selectedIdeas = pickRandomIdeas(9);
+  selectedIdeas.forEach((idea) => {
     const tile = createScratchTile(idea);
     grid.appendChild(tile);
   });
