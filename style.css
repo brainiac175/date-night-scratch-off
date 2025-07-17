@@ -1,0 +1,36 @@
+body {
+  font-family: sans-serif;
+  text-align: center;
+  background: #fff4f8;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #d6336c;
+}
+
+#grid {
+  display: grid;
+  grid-template-columns: repeat(3, 120px);
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+canvas {
+  border-radius: 10px;
+  background-color: #d6336c;
+  cursor: pointer;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background: #ffb3c6;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
