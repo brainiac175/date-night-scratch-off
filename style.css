@@ -6,12 +6,13 @@
 
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f2f2f2; /* Slightly off-white to reduce contrast illusion */
+  background-color: #f5f5f5; /* lighter gray to reduce illusion */
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
+  justify-content: center;
   padding: 40px 0;
+  min-height: 100vh;
 }
 
 h1 {
@@ -21,26 +22,26 @@ h1 {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 110px);
-  gap: 8px; /* Tight gap to reduce visual dot illusion */
+  grid-template-columns: repeat(3, 120px);
+  gap: 10px; /* tighter spacing to reduce dark illusion */
   justify-content: center;
   margin-bottom: 30px;
 }
 
 .card {
-  background-color: #a8a8a8; /* Softer gray to avoid shadow illusion */
+  background-color: #999; /* Lighter to reduce dark edge illusion */
   color: white;
   font-weight: bold;
   font-size: 14px;
-  width: 110px;
-  height: 110px;
+  width: 120px;
+  height: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 10px;
   cursor: pointer;
   transition: background 0.2s ease;
-  /* Removed box-shadow to reduce rendering artifacts */
+  /* No box-shadow for visual cleanliness */
 }
 
 .card.revealed {
@@ -49,9 +50,9 @@ h1 {
 }
 
 .button-wrapper {
-  width: 100%;
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 button {
