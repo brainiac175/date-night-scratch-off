@@ -7,12 +7,18 @@ function pickRandomIdeas(n) {
 }
 
 function createScratchTile(ideaText) {
+  // Canvas setup
   const canvas = document.createElement("canvas");
   canvas.width = 120;
   canvas.height = 120;
+  canvas.style.position = "absolute";
+  canvas.style.top = "0";
+  canvas.style.left = "0";
+  canvas.style.zIndex = "2";
+
   const ctx = canvas.getContext("2d");
 
-  // Draw the scratch layer (dark gray)
+  // Draw gray scratch layer
   ctx.fillStyle = "#555";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = "#fff";
@@ -21,9 +27,9 @@ function createScratchTile(ideaText) {
   ctx.textBaseline = "middle";
   ctx.fillText("Scratch me!", canvas.width / 2, canvas.height / 2);
 
-  // Hidden message
+  // Underneath message
   const hidden = document.createElement("div");
-  hidden.style.position = "absolute";
+  hidden.textContent = ideaText;
   hidden.style.width = "120px";
   hidden.style.height = "120px";
   hidden.style.display = "flex";
@@ -32,17 +38,24 @@ function createScratchTile(ideaText) {
   hidden.style.fontWeight = "bold";
   hidden.style.fontSize = "14px";
   hidden.style.color = "#222";
-  hidden.innerText = ideaText;
+  hidden.style.background = "#eee"; // Light background
+  hidden.style.position = "absolute";
+  hidden.style.top = "0";
+  hidden.style.left = "0";
+  hidden.style.zIndex = "1";
 
   // Tile container
   const container = document.createElement("div");
   container.style.position = "relative";
+  container.style.width = "120px";
+  container.style.height = "120px";
+  container.style.margin = "5px";
   container.appendChild(hidden);
   container.appendChild(canvas);
 
+  // Scratch logic
   const scratchCtx = ctx;
   scratchCtx.globalCompositeOperation = "destination-out";
-
   let isDrawing = false;
 
   const getMousePos = (e) => {
@@ -54,19 +67,27 @@ function createScratchTile(ideaText) {
 
   const scratch = (e) => {
     if (!isDrawing) return;
+    if (e.cancelable) e.preventDefault();
     const { x, y } = getMousePos(e);
     scratchCtx.beginPath();
     scratchCtx.arc(x, y, 15, 0, Math.PI * 2);
     scratchCtx.fill();
   };
 
+  // Mouse and touch events
   canvas.addEventListener("mousedown", () => (isDrawing = true));
   canvas.addEventListener("mouseup", () => (isDrawing = false));
+  canvas.addEventListener("mouseleave", () => (isDrawing = false));
   canvas.addEventListener("mousemove", scratch);
 
-  canvas.addEventListener("touchstart", () => (isDrawing = true));
+  canvas.addEventListener("touchstart", (e) => {
+    isDrawing = true;
+    if (e.cancelable) e.preventDefault();
+  }, { passive: false });
+
   canvas.addEventListener("touchend", () => (isDrawing = false));
-  canvas.addEventListener("touchmove", scratch);
+  canvas.addEventListener("touchcancel", () => (isDrawing = false));
+  canvas.addEventListener("touchmove", scratch, { passive: false });
 
   return container;
 }
@@ -82,3 +103,4 @@ function renderGrid() {
 
 resetBtn.addEventListener("click", renderGrid);
 renderGrid();
+

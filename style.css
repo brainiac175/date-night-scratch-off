@@ -1,36 +1,81 @@
-body {
+/* Reset and base styling */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
-  text-align: center;
-  background-color: #f2f2f2;
 }
 
-h1 {
-  margin-top: 30px;
-  color: #333;
-}
-
-#grid {
-  display: grid;
-  grid-template-columns: repeat(3, 120px);
-  gap: 20px;
+body {
+  font-family: system-ui, sans-serif;
+  background: #f0f0f0; /* Very light gray */
+  display: flex;
   justify-content: center;
-  margin: 40px auto;
+  align-items: center;
+  min-height: 100vh;
 }
 
-canvas {
-  border-radius: 10px;
-  cursor: pointer;
-  background-color: #444;
+main {
+  text-align: center;
 }
 
-#reset {
-  background-color: #444;
-  color: white;
-  padding: 10px 20px;
-  border: none;
+/* Grid container */
+#grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 400px;
+  margin: 30px auto;
+  gap: 10px;
+}
+
+/* Scratch-off tile container */
+#grid > div {
+  width: 120px;
+  height: 120px;
+  position: relative;
   border-radius: 8px;
-  font-size: 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+/* Hidden message styling */
+#grid > div > div {
+  background-color: #eeeeee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+  color: #222;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120px;
+  height: 120px;
+  z-index: 1;
+}
+
+/* Canvas (scratch layer) styling */
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  border-radius: 8px;
+}
+
+/* Reset button styling */
+#reset {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#reset:hover {
+  background-color: #555;
 }
