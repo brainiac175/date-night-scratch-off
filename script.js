@@ -12,10 +12,8 @@ function createScratchTile(ideaText) {
   canvas.height = 120;
   const ctx = canvas.getContext("2d");
 
-  // Dark gray scratch cover
-  ctx.fillStyle = "#444";
+  ctx.fillStyle = "#444"; // dark gray overlay
   ctx.fillRect(0, 0, canvas.width, canvas.height);
-
   ctx.fillStyle = "#ccc";
   ctx.font = "bold 14px sans-serif";
   ctx.textAlign = "center";
@@ -35,7 +33,7 @@ function createScratchTile(ideaText) {
   hidden.innerText = ideaText;
 
   const container = document.createElement("div");
-  container.style.position = "relative";
+  container.className = "tile"; // Ensures correct layout
   container.appendChild(hidden);
   container.appendChild(canvas);
 
