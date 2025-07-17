@@ -12,8 +12,10 @@ function createScratchTile(ideaText) {
   canvas.height = 120;
   const ctx = canvas.getContext("2d");
 
-  ctx.fillStyle = "#444"; // dark gray overlay
+  // Dark gray scratch cover
+  ctx.fillStyle = "#444";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
+
   ctx.fillStyle = "#ccc";
   ctx.font = "bold 14px sans-serif";
   ctx.textAlign = "center";
@@ -63,7 +65,10 @@ function createScratchTile(ideaText) {
 
   canvas.addEventListener("touchstart", () => (isDrawing = true));
   canvas.addEventListener("touchend", () => (isDrawing = false));
-  canvas.addEventListener("touchmove", scratch);
+  canvas.addEventListener("touchmove", (e) => {
+    e.preventDefault();
+    scratch(e);
+  });
 
   return container;
 }
