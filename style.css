@@ -6,41 +6,41 @@
 
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f4f4f4;
-  padding: 40px 20px;
+  background-color: #f2f2f2; /* Slightly off-white to reduce contrast illusion */
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
+  padding: 40px 0;
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 24px;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 120px);
-  gap: 20px;
+  grid-template-columns: repeat(3, 110px);
+  gap: 8px; /* Tight gap to reduce visual dot illusion */
   justify-content: center;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .card {
-  background-color: #6a6a6a; /* soft neutral gray to reduce grid illusion */
+  background-color: #a8a8a8; /* Softer gray to avoid shadow illusion */
   color: white;
   font-weight: bold;
-  font-size: 16px;
-  width: 120px;
-  height: 120px;
+  font-size: 14px;
+  width: 110px;
+  height: 110px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 12px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: background 0.3s ease;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: background 0.2s ease;
+  /* Removed box-shadow to reduce rendering artifacts */
 }
 
 .card.revealed {
@@ -48,19 +48,23 @@ h1 {
   color: #222;
 }
 
+.button-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 button {
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: 10px 24px;
+  font-size: 15px;
   background-color: #222;
   color: white;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  margin-top: 10px;
   transition: background 0.2s ease;
 }
 
 button:hover {
   background-color: #444;
 }
-
