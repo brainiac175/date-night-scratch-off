@@ -33,7 +33,7 @@ function createScratchTile(ideaText) {
   hidden.innerText = ideaText;
 
   const container = document.createElement("div");
-  container.className = "tile"; // Ensures correct layout
+  container.className = "tile";
   container.appendChild(hidden);
   container.appendChild(canvas);
 
