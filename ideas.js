@@ -45,7 +45,7 @@ const ideas = [
   "Each write a love haiku", "Learn to fold a specific origami animal together",
   "Write compliments on sticky notes and hide them around", "Find constellation shapes in random cloud formations",
   "Bake a single giant cookie to share", "Write fictional bios for each other like a character sheet",
-  "Watch a silent film and narrate it yourselves", "Create your own 3-song “relationship soundtrack”, "Cook dinner using only ingredients that start with the same letter", "Make a couples bucket list in Google Docs",
+  "Watch a silent film and narrate it yourselves", "Create your own 3-song “relationship soundtrack”,
   "Visit an open mic night or poetry slam", "Take turns giving each other 5-minute massages",
   "Try a paint-by-numbers kit together", "Make your own fortune cookies with inside jokes",
   "Film a cooking show starring yourselves", "Host a tea party on the living room floor",

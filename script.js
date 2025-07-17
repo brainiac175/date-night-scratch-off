@@ -12,14 +12,16 @@ function createScratchTile(ideaText) {
   canvas.height = 120;
   const ctx = canvas.getContext("2d");
 
-  ctx.fillStyle = "#444"; // dark gray overlay
+  // Draw the scratch layer (dark gray)
+  ctx.fillStyle = "#555";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "#ccc";
+  ctx.fillStyle = "#fff";
   ctx.font = "bold 14px sans-serif";
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
   ctx.fillText("Scratch me!", canvas.width / 2, canvas.height / 2);
 
+  // Hidden message
   const hidden = document.createElement("div");
   hidden.style.position = "absolute";
   hidden.style.width = "120px";
@@ -29,11 +31,12 @@ function createScratchTile(ideaText) {
   hidden.style.justifyContent = "center";
   hidden.style.fontWeight = "bold";
   hidden.style.fontSize = "14px";
-  hidden.style.color = "#444";
+  hidden.style.color = "#222";
   hidden.innerText = ideaText;
 
+  // Tile container
   const container = document.createElement("div");
-  container.className = "tile";
+  container.style.position = "relative";
   container.appendChild(hidden);
   container.appendChild(canvas);
 
@@ -63,10 +66,7 @@ function createScratchTile(ideaText) {
 
   canvas.addEventListener("touchstart", () => (isDrawing = true));
   canvas.addEventListener("touchend", () => (isDrawing = false));
-  canvas.addEventListener("touchmove", (e) => {
-    e.preventDefault();
-    scratch(e);
-  });
+  canvas.addEventListener("touchmove", scratch);
 
   return container;
 }
@@ -82,5 +82,3 @@ function renderGrid() {
 
 resetBtn.addEventListener("click", renderGrid);
 renderGrid();
-
-// m
